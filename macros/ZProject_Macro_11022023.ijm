@@ -1,0 +1,14 @@
+imageCalculator("Subtract create stack", "Holograms","Duplicate");
+run("Delta F Up");
+selectImage("Holograms DeltaF up");
+setAutoThreshold("Default dark no-reset");
+//run("Threshold...");
+setAutoThreshold("MaxEntropy dark no-reset");
+call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
+setOption("BlackBackground", true);
+run("Convert to Mask", "method=MaxEntropy background=Dark calculate");
+run("Z Code Stack");
+selectImage("Depth Coded Stack");
+makeRectangle(501, 426, 3, 6);
+run("Z Project...", "projection=[Max Intensity]");
+makeRectangle(1395, 912, 3, 3);
