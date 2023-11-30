@@ -12,12 +12,12 @@
   <name>MHI Plugin</name>
   <description>This plugin runs a script to produce an MHI</description>
   <inceptionYear>2023</inceptionYear>
-
-
-
-
-
-
+ <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+        </license>
+    </licenses>
   <organization>
     <name>Portland State University</name>
     <url>https://www.pdx.edu/</url>
@@ -33,38 +33,45 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git:github.com/schlackt/DHM-deconvolution</connection>
-    <developerConnection>scm:git:git@github.com/schlackt/DHM-deconvolution</developerConnection>
+    <connection>scm:git:git:github.com/joseMP444/imagej-fiji</connection>
+    <developerConnection>scm:git:git@github.com/joseMP444/imagej-fiji</developerConnection>
     <tag>HEAD</tag>
-    <url>https://github.com/schlackt/DHM-deconvolution</url>
+    <url>https://github.com/joseMP444/imagej-fiji</url>
   </scm>
 
+  <dependencies>
+    <dependency>
+      <groupId>net.imagej</groupId>
+      <artifactId>ij</artifactId>
+      <version>1.52e</version>
+    </dependency>
 
+
+
+
+
+
+  </dependencies>
+  <repositories>
+        <!-- NB: for project parent -->
+        <repository>
+            <id>imagej.public</id>
+            <url>http://maven.imagej.net/content/groups/public</url>
+        </repository>
+  </repositories>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -98,6 +105,21 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
+            <configuration>
+                <compilerArgument>-Xlint:all</compilerArgument>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.0.1</version>
+        </plugin>
+
+
       </plugins>
     </pluginManagement>
   </build>
